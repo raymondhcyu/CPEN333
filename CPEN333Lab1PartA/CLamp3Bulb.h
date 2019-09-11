@@ -8,8 +8,8 @@
 
 class CLamp3Bulb {
 private:
-	CSwitch mainSwitch;
-	CBulb mainBulbs[3]; // initialize 3 CBulb objects
+	CSwitch *mainSwitch;
+	CBulb *mainBulbs[3]; // initialize 3 CBulb objects as pointers
 
 public:
 	CLamp3Bulb(int w1, int w2, int w3); // default constructor

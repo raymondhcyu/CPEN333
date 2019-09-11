@@ -30,7 +30,7 @@ int main() {
 	// Lamp3Bulb testing
 	tripleBulbs.print();
 	tripleBulbs.lampOn();
-	tripleBulbs.print();
+	tripleBulbs.print(); // calls getState
 	printf("Triple bulbs are consuming %iW\n", tripleBulbs.getPower());
 
 	return 0;
