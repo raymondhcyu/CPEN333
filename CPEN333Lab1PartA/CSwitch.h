@@ -11,7 +11,7 @@ public:
 	CSwitch(); // default constructor
 	void turnOn(); // turn on
 	void turnOff();
-	int getState();
+	int getState() const;
 	void print(); // status
 	~CSwitch();
 };

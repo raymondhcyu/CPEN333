@@ -38,11 +38,12 @@ int main() {
 	// Exchange testing
 	CBulb* newBulb = new CBulb(500);
 	tripleBulbs.exchangeBulb(newBulb, 0);
+	tripleBulbs.print();
 	printf("Triple bulbs are consuming %iW\n", tripleBulbs.getPower());
 	tripleBulbs.lampOff();
 	tripleBulbs.print();
 	printf("Triple bulbs are consuming %iW\n", tripleBulbs.getPower());
-	//delete newBulb; // if uncomment, invalid address heap error
+	//delete newBulb; // if uncomment, invalid address heap error; does deconstructor delete all objects anyways
 
 	return 0;
 }

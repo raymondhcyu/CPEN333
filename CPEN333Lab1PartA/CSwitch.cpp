@@ -14,7 +14,7 @@ void CSwitch::turnOff() {
 	state = 0;
 }
 
-int CSwitch::getState() {
+int CSwitch::getState() const {
 	return state;
 }
 
