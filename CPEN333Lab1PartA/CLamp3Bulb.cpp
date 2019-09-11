@@ -9,10 +9,10 @@ CLamp3Bulb::CLamp3Bulb(int w1, int w2, int w3) {
 	mainBulbs[1] = new CBulb(w2);
 	mainBulbs[2] = new CBulb(w3);
 
-	//// Set wattages of mainbulbs
-	//mainBulbs[0]->setWatts(w1);
-	//mainBulbs[1]->setWatts(w2);
-	//mainBulbs[2]->setWatts(w3);
+	// Set wattages of mainbulbs
+	mainBulbs[0]->setState(mainBulbs[0]->getState());
+	mainBulbs[0]->setState(mainBulbs[1]->getState());
+	mainBulbs[0]->setState(mainBulbs[2]->getState());
 
 	printf("Default CLamp3Bulb constructor, setting wattages!\n");
 }
@@ -20,14 +20,14 @@ CLamp3Bulb::CLamp3Bulb(int w1, int w2, int w3) {
 void CLamp3Bulb::lampOn() {
 	mainSwitch->turnOn();
 	for (int i = 0; i < 3; i++) { // mainBulbs.size()
-		mainBulbs[i]->setState(0);
+		mainBulbs[i]->setState(1);
 	}
 }
 
 void CLamp3Bulb::lampOff() {
 	mainSwitch->turnOff();
 	for (int i = 0; i < 3; i++) {
-		mainBulbs[i]->setState(1);
+		mainBulbs[i]->setState(0);
 	}
 }
 
@@ -46,6 +46,12 @@ int CLamp3Bulb::getPower() {
 		sum += mainBulbs[i]->getPower();
 	}
 	return sum;
+}
+
+CBulb* CLamp3Bulb::exchangeBulb(CBulb* newBulb, int bulbNumber) {
+	delete mainBulbs[bulbNumber]; // delete old instance of it before reassigning
+	mainBulbs[bulbNumber] = newBulb; // mainBulbs[bulbNumber] is same as pointer
+	return mainBulbs[bulbNumber]; // address of new bulb
 }
 
 CLamp3Bulb::~CLamp3Bulb() {

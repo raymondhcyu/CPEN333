@@ -18,6 +18,10 @@ public:
 	int getState(); // return state of switch
 	void print(); // print state of lamp, on or off
 	int getPower(); // return power consumed by lamp
+
+	// Function to exchange bulbs; returns pointer to old bulb
+	// "take ownership of new bulb and returns pointer to old bulb
+	CBulb* exchangeBulb(CBulb* newBulb, int bulbNumber); 
 	~CLamp3Bulb(); // destructor
 };
 

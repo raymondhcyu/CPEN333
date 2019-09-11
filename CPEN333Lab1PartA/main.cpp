@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <iostream> // to get cout cin
 #include "CBulb.h"
 #include "CSwitch.h"
 #include "CLamp3Bulb.h"
@@ -29,9 +30,19 @@ int main() {
 
 	// Lamp3Bulb testing
 	tripleBulbs.print();
+	printf("Triple bulbs are consuming %iW\n", tripleBulbs.getPower());
 	tripleBulbs.lampOn();
 	tripleBulbs.print(); // calls getState
 	printf("Triple bulbs are consuming %iW\n", tripleBulbs.getPower());
+
+	// Exchange testing
+	CBulb* newBulb = new CBulb(500);
+	tripleBulbs.exchangeBulb(newBulb, 0);
+	printf("Triple bulbs are consuming %iW\n", tripleBulbs.getPower());
+	tripleBulbs.lampOff();
+	tripleBulbs.print();
+	printf("Triple bulbs are consuming %iW\n", tripleBulbs.getPower());
+	//delete newBulb; // if uncomment, invalid address heap error
 
 	return 0;
 }
