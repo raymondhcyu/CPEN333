@@ -39,10 +39,9 @@ void CLamp3Bulb::print() {
 	mainSwitch->print();
 }
 
-int CLamp3Bulb::getPower() {
+int CLamp3Bulb::getPower() const {
 	int sum = 0; // sum of power
 	for (int i = 0; i < 3; i++) {
-		//mainBulbs[i]->setState(1);
 		sum += mainBulbs[i]->getPower();
 	}
 	return sum;
@@ -52,6 +51,7 @@ CBulb* CLamp3Bulb::exchangeBulb(CBulb* newBulb, int bulbNumber) {
 	// delete mainBulbs[bulbNumber]; // delete old instance of it before reassigning
 	newBulb->setState(1); // turn on bulb since default new wattage assignment is off
 	mainBulbs[bulbNumber] = newBulb; // mainBulbs[bulbNumber] is same as pointer
+	printf("Exchange constructor called.\n");
 	return mainBulbs[bulbNumber]; // address of new bulb
 }
 
