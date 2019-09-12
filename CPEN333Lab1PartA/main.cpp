@@ -46,19 +46,17 @@ int main() {
 	// Pull lamp testing (inherited)
 	printf("\n");
 	CPullLamp L1(100, 100, 100); // initialize three new bulbs to 100W
+
 	//L1.lampOn(); // changed to private void
+	L1.toggle();
 	printf("Power of Lamp = %d\n", L1.getPower());	// print power
 	CBulb* bulb1 = new CBulb(50);	// create new 50 watt bulb
 	bulb1 = L1.exchangeBulb(bulb1, 0);	// swap bulb 0 for 50 watt bulb
 	printf("Power of Lamp = %d\n", L1.getPower());	// print power
-	//L1.lampOff(); // changed to private void
-	printf("Power of Lamp = %d\n", L1.getPower());	// print power
 
-	// Toggle testing
+	//L1.lampOff(); // changed to private void
 	L1.toggle();
-	printf("Power of Lamp %d\n", L1.getPower()); // print power
-	L1.toggle();
-	printf("Power of Lamp %d\n", L1.getPower()); // print power
+	printf("Power of Lamp = %d\n", L1.getPower());	// print power
 
 	return 0;
 }
