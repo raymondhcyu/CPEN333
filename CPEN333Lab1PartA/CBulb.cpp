@@ -39,7 +39,7 @@ void CBulb::setWatts(int setWatt) {
 	watts = setWatt;
 }
 
-int CBulb::getPower() {
+int CBulb::getPower() const {
 	if (state == 0)
 		return 0;
 	else

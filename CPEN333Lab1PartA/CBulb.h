@@ -17,7 +17,7 @@ public:
 	void setState(int changeState);
 	int getState(); // get onoff state
 	void setWatts(int setWatt);
-	int getPower(); // get power use
+	int getPower() const; // get power use
 };
 
 #endif 
