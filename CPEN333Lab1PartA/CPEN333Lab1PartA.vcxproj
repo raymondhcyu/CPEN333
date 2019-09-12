@@ -125,11 +125,13 @@
   <ItemGroup>
     <ClInclude Include="CBulb.h" />
     <ClInclude Include="CLamp3Bulb.h" />
+    <ClInclude Include="CPullLamp.h" />
     <ClInclude Include="CSwitch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CBulb.cpp" />
     <ClCompile Include="CLamp3Bulb.cpp" />
+    <ClCompile Include="CPullLamp.cpp" />
     <ClCompile Include="CSwitch.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

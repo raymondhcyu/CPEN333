@@ -3,6 +3,7 @@
 #include "CBulb.h"
 #include "CSwitch.h"
 #include "CLamp3Bulb.h"
+#include "CPullLamp.h"
 
 int main() {
 
@@ -12,16 +13,13 @@ int main() {
 
 	// Bulb testing
 	lightBulb.printState();
-
 	lightBulb.setState(1);
 	lightBulb.printState();
-
 	lightBulb.setWatts(200);
 	lightBulb.printState();
 
 	lightBulb.setState(0);
 	printf("Power used: %iW\n", lightBulb.getPower());
-
 	lightBulb.setState(1);
 	printf("Power used: %iW\n", lightBulb.getPower());
 
@@ -44,6 +42,23 @@ int main() {
 	tripleBulbs.print();
 	printf("Triple bulbs are consuming %iW\n", tripleBulbs.getPower());
 	//delete newBulb; // if uncomment, invalid address heap error; does deconstructor delete all objects anyways
+
+	// Pull lamp testing (inherited)
+	printf("\n");
+	CPullLamp L1(100, 100, 100); // initialize three new bulbs to 100W
+	//L1.lampOn(); // changed to private void
+	printf("Power of Lamp = %d\n", L1.getPower());	// print power
+	CBulb* bulb1 = new CBulb(50);	// create new 50 watt bulb
+	bulb1 = L1.exchangeBulb(bulb1, 0);	// swap bulb 0 for 50 watt bulb
+	printf("Power of Lamp = %d\n", L1.getPower());	// print power
+	//L1.lampOff(); // changed to private void
+	printf("Power of Lamp = %d\n", L1.getPower());	// print power
+
+	// Toggle testing
+	L1.toggle();
+	printf("Power of Lamp %d\n", L1.getPower()); // print power
+	L1.toggle();
+	printf("Power of Lamp %d\n", L1.getPower()); // print power
 
 	return 0;
 }
