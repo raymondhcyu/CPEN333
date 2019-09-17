@@ -37,8 +37,10 @@ int main() {
 	printf("Triple bulbs are consuming %iW\n", tripleBulbs.getPower());
 
 	// Exchange testing
-	CBulb* newBulb = new CBulb(500);
-	tripleBulbs.exchangeBulb(newBulb, 0);
+	CBulb* newBulb = new CBulb(500); // newBulb to replace
+	newBulb = tripleBulbs.exchangeBulb(newBulb, 0); // newBulb is actually now oldBulb
+	printf("Power of old bulb: %iW\n", newBulb->getPower()); // should state 10W
+	delete newBulb; // clear memory
 	tripleBulbs.print();
 	printf("Triple bulbs are consuming %iW\n", tripleBulbs.getPower());
 	tripleBulbs.lampOff();

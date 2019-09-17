@@ -48,11 +48,13 @@ int CLamp3Bulb::getPower() const {
 }
 
 CBulb* CLamp3Bulb::exchangeBulb(CBulb* newBulb, int bulbNumber) {
-	// delete mainBulbs[bulbNumber]; // delete old instance of it before reassigning
-	newBulb->setState(1); // turn on bulb since default new wattage assignment is off
-	mainBulbs[bulbNumber] = newBulb; // mainBulbs[bulbNumber] is same as pointer
 	printf("Exchange constructor called.\n");
-	return mainBulbs[bulbNumber]; // address of new bulb
+	CBulb* oldBulb = new CBulb(); // create a pointer to an oldbulb object
+	oldBulb = mainBulbs[bulbNumber]; // point to the bulb to be replaced
+	mainBulbs[bulbNumber] = newBulb; // replace the bulb
+	newBulb->setState(1); // turn it on
+
+	return oldBulb; // pointer to the oldbulb
 }
 
 CLamp3Bulb::CLamp3Bulb(const CLamp3Bulb &lampToCopy) { // need const as copy constructor
