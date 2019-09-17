@@ -4,6 +4,9 @@
 #include "CSwitch.h"
 #include "CLamp3Bulb.h"
 #include "CPullLamp.h"
+#include "linkedList.h"
+
+using namespace std;
 
 int main() {
 
@@ -57,6 +60,17 @@ int main() {
 	//L1.lampOff(); // changed to private void
 	L1.toggle();
 	printf("Power of Lamp = %d\n", L1.getPower());	// print power
+
+	// Linked lists
+	cout << "\n\n\n";
+
+	LinkedList theList;
+	theList.AddNode(5);
+	theList.AddNode(4);
+	theList.AddNode(3);
+	theList.ListData();
+
+	cout << "\n\n\n";
 
 	return 0;
 }

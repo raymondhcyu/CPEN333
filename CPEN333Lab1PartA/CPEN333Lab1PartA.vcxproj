@@ -127,6 +127,7 @@
     <ClInclude Include="CLamp3Bulb.h" />
     <ClInclude Include="CPullLamp.h" />
     <ClInclude Include="CSwitch.h" />
+    <ClInclude Include="linkedList.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CBulb.cpp" />
