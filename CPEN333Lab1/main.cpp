@@ -65,13 +65,13 @@ int main() {
 
 	// Linked lists
 	cout << "\n\n\n";
-
 	LinkedList theList;
 	theList.AddNode(5);
 	theList.AddNode(4);
 	theList.AddNode(3);
+	printf("The 3rd value in the LL is %i\n", theList.GetVal(2));
+	cout << "The length of LL is: " << theList.GetLen() << endl;
 	theList.ListData();
-
 	cout << "\n\n\n";
 
 	return 0;

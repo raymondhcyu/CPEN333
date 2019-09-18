@@ -40,6 +40,23 @@ public:
 		}
 	}
 
+	// Retrieve length of LL
+	int GetLen() {
+		int length = -1;
+		Node* temp = head; 
+		if (temp == NULL)
+			return length; // nothing in LL
+		else {
+			length = 1;
+			while (temp->next != NULL) {
+				length += 1;
+				temp = temp->next;
+			}
+			// stuff
+		}
+		return length;
+	}
+
 	// List all data in LL
 	void ListData() {
 		Node* temp = head;
@@ -49,9 +66,22 @@ public:
 		}
 	}
 
-	//List(); // return all vals in LL?
-	//Insert(); // insert LL, create new pointer to new object, new object next to old next, delete original pointer
-	//Delete(); // delete LL, next pointer needs to skip
-	//Get(); // return data from LL
+	// Retrieve LL data from specific location (no check for exceeding LL size)
+	int GetVal(int n) {
+		Node* temp = head;
+		if (n == 1) // initial condition
+			return head->data;
+		else {
+			for (int i = 0; i < n; i++) {
+				temp = temp->next;
+			}
+		}
+		return temp->data;
+	}
+
+	//List(); // default constructor
+	//Insert(); // add at end
+	//Delete(); // delete at end
+	//Get(); // return data from LL at int number
 };
 #endif
