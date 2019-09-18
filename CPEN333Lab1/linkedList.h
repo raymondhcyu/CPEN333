@@ -19,18 +19,18 @@ private:
 public:
 	// Default constructor to set 
 	LinkedList() {
-		head = NULL;
-		tail = NULL;
+		head = nullptr;
+		tail = nullptr;
 	}
 
 	// Add new node (not insert)
 	void AddNode (int n) {
 		Node* temp = new Node; // create pointer to new node
 		temp->data = n; // assign new data
-		temp->next = NULL; // nothing after it (may need changing)
+		temp->next = nullptr; // nothing after it (may need changing)
 
 		// assign head and tail to be new node if first one
-		if (head == NULL) {
+		if (head == nullptr) {
 			head = temp;
 			tail = temp;
 		}
@@ -44,11 +44,11 @@ public:
 	int GetLen() {
 		int length = -1;
 		Node* temp = head; 
-		if (temp == NULL)
+		if (temp == nullptr)
 			return length; // nothing in LL
 		else {
 			length = 1;
-			while (temp->next != NULL) {
+			while (temp->next != nullptr) {
 				length += 1;
 				temp = temp->next;
 			}
@@ -60,8 +60,8 @@ public:
 	// List all data in LL
 	void ListData() {
 		Node* temp = head;
-		while (temp != NULL) {
-			cout << head->data << endl;
+		while (temp != nullptr) {
+			cout << temp->data << endl;
 			temp = temp->next;
 		}
 	}
@@ -77,6 +77,11 @@ public:
 			}
 		}
 		return temp->data;
+	}
+
+	// Delete last element of LL
+	void DelVal() {
+
 	}
 
 	//List(); // default constructor
