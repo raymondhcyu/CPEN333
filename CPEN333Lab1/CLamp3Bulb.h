@@ -18,6 +18,8 @@ public:
 	int getState() const; // return state of switch
 	void print(); // print state of lamp, on or off
 	int getPower() const; // return power consumed by lamp
+	int getPowerOfBulb(int i) const; // return power consumed by one bulb
+	int getStateOfBulb(int i) const; // return state of one bulb
 
 	// Function to exchange bulbs; returns pointer to old bulb
 	// "take ownership of new bulb and returns pointer to old bulb

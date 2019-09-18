@@ -47,6 +47,14 @@ int CLamp3Bulb::getPower() const {
 	return sum;
 }
 
+int CLamp3Bulb::getPowerOfBulb(int i) const {
+	return mainBulbs[i]->getPower();
+}
+
+int CLamp3Bulb::getStateOfBulb(int i) const {
+	return mainBulbs[i]->getState();
+}
+
 CBulb* CLamp3Bulb::exchangeBulb(CBulb* newBulb, int bulbNumber) {
 	printf("Exchange constructor called.\n");
 	CBulb* oldBulb = new CBulb(); // create a pointer to an oldbulb object
@@ -65,13 +73,13 @@ CLamp3Bulb::CLamp3Bulb(const CLamp3Bulb &lampToCopy) { // need const as copy con
 	else
 		mainSwitch->turnOff();
 
-	mainBulbs[0] = new CBulb(lampToCopy.getPower()); // copy bulbs and power
-	mainBulbs[1] = new CBulb(lampToCopy.getPower());
-	mainBulbs[2] = new CBulb(lampToCopy.getPower());
+	mainBulbs[0] = new CBulb(lampToCopy.getPowerOfBulb(0)); // copy bulbs and power
+	mainBulbs[1] = new CBulb(lampToCopy.getPowerOfBulb(1));
+	mainBulbs[2] = new CBulb(lampToCopy.getPowerOfBulb(2));
 
-	mainBulbs[0]->setState(lampToCopy.getState()); // copy state of lamps
-	mainBulbs[0]->setState(lampToCopy.getState());
-	mainBulbs[0]->setState(lampToCopy.getState());
+	mainBulbs[0]->setState(lampToCopy.getStateOfBulb(0)); // copy state of lamps
+	mainBulbs[0]->setState(lampToCopy.getStateOfBulb(1));
+	mainBulbs[0]->setState(lampToCopy.getStateOfBulb(2));
 
 	printf("CLamp3Bulb copy constructor called.\n");
 }
