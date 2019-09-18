@@ -12,15 +12,11 @@
 
 using namespace std;
 
-struct Node
-{
-	int data; // int data storage
-	Node* next; // pointer to the next struct of same element
-};
+// Templates: Declaration and member functions needs to be within this same file
+
+template <class T>
 
 class LinkedList {
-private:
-	Node* head, * tail;
 public:
 	// Default constructor to set 
 	LinkedList() {
@@ -28,8 +24,13 @@ public:
 		tail = nullptr;
 	}
 
-	// Add new node (not insert)
-	void AddNode (int n) {
+	struct Node {
+		T data; // int data storage
+		Node* next; // pointer to the next struct of same element
+	};
+
+	// Add new node
+	void Insert (T n) {
 		Node* temp = new Node; // create pointer to new node
 		temp->data = n; // assign new data
 		temp->next = nullptr; // nothing after it (may need changing)
@@ -102,5 +103,10 @@ public:
 		if (previous != nullptr)
 			previous->next = nullptr;
 	}
+
+// Private variables at end else Node not defined
+private:
+	Node* head;
+	Node* tail;
 };
 #endif
