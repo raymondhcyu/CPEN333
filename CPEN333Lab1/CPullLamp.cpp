@@ -1,3 +1,8 @@
+/* Raymond Yu
+ * 17 September 2019
+ * 11298149
+ */
+
 #include <stdio.h>
 #include "CPullLamp.h"
 

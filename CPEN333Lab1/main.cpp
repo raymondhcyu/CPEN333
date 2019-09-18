@@ -1,3 +1,8 @@
+/* Raymond Yu
+ * 17 September 2019
+ * 11298149
+ */
+
 #include <stdio.h>
 #include <iostream> // to get cout cin
 #include "CBulb.h"
@@ -70,6 +75,9 @@ int main() {
 	theList.AddNode(4);
 	theList.AddNode(3);
 	printf("The 3rd value in the LL is %i\n", theList.GetVal(2));
+	cout << "The length of LL is: " << theList.GetLen() << endl;
+	theList.ListData();
+	theList.DelVal(); 
 	cout << "The length of LL is: " << theList.GetLen() << endl;
 	theList.ListData();
 	cout << "\n\n\n";

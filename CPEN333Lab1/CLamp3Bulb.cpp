@@ -1,3 +1,8 @@
+/* Raymond Yu
+ * 17 September 2019
+ * 11298149
+ */
+
 #include <stdio.h>
 #include "CLamp3Bulb.h"
 
@@ -61,7 +66,7 @@ CBulb* CLamp3Bulb::exchangeBulb(CBulb* newBulb, int bulbNumber) {
 	oldBulb = mainBulbs[bulbNumber]; // point to the bulb to be replaced
 	mainBulbs[bulbNumber] = newBulb; // replace the bulb
 	newBulb->setState(1); // turn it on
-
+	
 	return oldBulb; // pointer to the oldbulb
 }
 

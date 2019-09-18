@@ -1,3 +1,8 @@
+/* Raymond Yu
+ * 17 September 2019
+ * 11298149
+ */
+
 #pragma once
 
 #ifndef   __linkedList__
@@ -81,12 +86,21 @@ public:
 
 	// Delete last element of LL
 	void DelVal() {
-
+		Node* current = head;
+		Node* previous = nullptr;
+		if (head == nullptr) { // empty LL
+			return;
+		}
+		while (current->next != nullptr) {
+			previous = current;
+			current = current->next;
+		}
+		if (current == head)
+			head = nullptr; // one element LL
+		delete tail; // if a tail still exists
+		tail = previous;
+		if (previous != nullptr)
+			previous->next = nullptr;
 	}
-
-	//List(); // default constructor
-	//Insert(); // add at end
-	//Delete(); // delete at end
-	//Get(); // return data from LL at int number
 };
 #endif
