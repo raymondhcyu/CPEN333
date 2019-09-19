@@ -25,14 +25,14 @@ CLamp3Bulb::CLamp3Bulb(int w1, int w2, int w3) {
 void CLamp3Bulb::lampOn() {
 	mainSwitch->turnOn();
 	for (int i = 0; i < 3; i++) { // mainBulbs.size()
-		mainBulbs[i]->setState(1);
+		mainBulbs[i]->turnOn();
 	}
 }
 
 void CLamp3Bulb::lampOff() {
 	mainSwitch->turnOff();
 	for (int i = 0; i < 3; i++) {
-		mainBulbs[i]->setState(0);
+		mainBulbs[i]->turnOff();
 	}
 }
 
@@ -65,7 +65,7 @@ CBulb* CLamp3Bulb::exchangeBulb(CBulb* newBulb, int bulbNumber) {
 	CBulb* oldBulb = new CBulb(); // create a pointer to an oldbulb object
 	oldBulb = mainBulbs[bulbNumber]; // point to the bulb to be replaced
 	mainBulbs[bulbNumber] = newBulb; // replace the bulb
-	newBulb->setState(1); // turn it on
+	newBulb->turnOn(); // turn it on
 	
 	return oldBulb; // pointer to the oldbulb
 }

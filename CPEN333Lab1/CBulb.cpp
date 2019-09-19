@@ -36,6 +36,14 @@ void CBulb::setState(int changeState) {
 	state = changeState;
 }
 
+void CBulb::turnOn() {
+	state = 1;
+}
+
+void CBulb::turnOff() {
+	state = 0;
+}
+
 int CBulb::getState() {
 	return state;
 }

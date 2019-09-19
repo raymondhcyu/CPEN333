@@ -19,6 +19,8 @@ public:
 	~CBulb(); // destructor, auto call after end
 
 	void printState();
+	void turnOn();
+	void turnOff();
 	void setState(int changeState);
 	int getState(); // get onoff state
 	void setWatts(int setWatt);

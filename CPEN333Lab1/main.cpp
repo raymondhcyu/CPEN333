@@ -21,14 +21,14 @@ int main() {
 
 	// Bulb testing
 	lightBulb.printState();
-	lightBulb.setState(1);
+	lightBulb.turnOn();
 	lightBulb.printState();
 	lightBulb.setWatts(200);
 	lightBulb.printState();
 
-	lightBulb.setState(0);
+	lightBulb.turnOff();
 	printf("Power used: %iW\n", lightBulb.getPower());
-	lightBulb.setState(1);
+	lightBulb.turnOn();
 	printf("Power used: %iW\n", lightBulb.getPower());
 
 	// Switch testing
@@ -51,7 +51,6 @@ int main() {
 	tripleBulbs.lampOff();
 	tripleBulbs.print();
 	printf("Triple bulbs are consuming %iW\n", tripleBulbs.getPower());
-	//delete newBulb; // if uncomment, invalid address heap error; does deconstructor delete all objects anyways
 
 	// Pull lamp testing (inherited)
 	printf("\n");
@@ -61,6 +60,7 @@ int main() {
 	printf("Power of Lamp = %d\n", L1.getPower());	// print power
 	CBulb* bulb1 = new CBulb(50);	// create new 50 watt bulb
 	bulb1 = L1.exchangeBulb(bulb1, 0);	// swap bulb 0 for 50 watt bulb
+	delete bulb1; // delete to free memory
 	printf("Power of Lamp = %d\n", L1.getPower());	// print power
 
 	L1.toggle();
@@ -89,9 +89,9 @@ int main() {
 	L2.ListData(); // list data in L2 (shows memory addresses)
 	printf("The power of the 1st value of L2 is %i\n", L2.GetVal(0)->getPower());
 	printf("The power of the 2nd value of L2 is %i\n", L2.GetVal(1)->getPower());
-	b1.setState(1); // turn states on to get power
-	b2.setState(1);
-	cout << "The power of the 1st value of L2 is: " << L2.GetVal(0)->getPower() << endl; // only gets memory address without *; doesn't work with *
+	b1.turnOn(); // turn states on to get power
+	b2.turnOn();
+	cout << "The power of the 1st value of L2 is: " << L2.GetVal(0)->getPower() << endl;
 	cout << "The power of the 2nd value of L2 is: " << L2.GetVal(1)->getPower() << endl;
 	cout << "The length of L2 is: " << L2.GetLen() << endl;
 
