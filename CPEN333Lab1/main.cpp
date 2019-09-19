@@ -41,7 +41,17 @@ int main() {
 	tripleBulbs.print(); // calls getState
 	printf("Triple bulbs are consuming %iW\n", tripleBulbs.getPower());
 
+	// Copy constructor testing
+	cout << "\nCopy testing\n" << endl;
+	CLamp3Bulb C1(9, 18, 27);
+	cout << "Power of bulbs: " << C1.getPower() << endl;
+	C1.lampOn();
+	cout << "Power of bulbs: " << C1.getPower() << endl;
+	CLamp3Bulb C2(C1);
+	cout << "Power of bulbs: " << C1.getPower() << endl;
+
 	// Exchange testing
+	cout << "\nExchange testing\n" << endl;
 	CBulb* newBulb = new CBulb(500); // newBulb to replace
 	newBulb = tripleBulbs.exchangeBulb(newBulb, 0); // newBulb is actually now oldBulb
 	printf("Power of old bulb: %iW\n", newBulb->getPower()); // should state 10W
@@ -53,7 +63,7 @@ int main() {
 	printf("Triple bulbs are consuming %iW\n", tripleBulbs.getPower());
 
 	// Pull lamp testing (inherited)
-	printf("\n");
+	cout << "\nPull lamp testing\n" << endl;
 	CPullLamp L1(100, 100, 100); // initialize three new bulbs to 100W
 
 	L1.toggle();
@@ -67,7 +77,7 @@ int main() {
 	printf("Power of Lamp = %d\n", L1.getPower());	// print power
 
 	// Linked list with ints
-	cout << "\n\n\n";
+	cout << "\nLinked list with ints testing\n" << endl;
 	LinkedList<int> theList; // LinkedList is a template now taking int data
 	theList.Insert(5);
 	theList.Insert(4);
@@ -80,7 +90,7 @@ int main() {
 	theList.ListData();
 
 	// Linked list with bulbs
-	cout << "\n\n\n";
+	cout << "\nLinked list with bulbs testing\n" << endl;
 	CBulb b1(100); // create 100W bulb
 	CBulb b2(120); // create 120W bulb
 	LinkedList<CBulb*> L2; // LL which holds CBulb pointers

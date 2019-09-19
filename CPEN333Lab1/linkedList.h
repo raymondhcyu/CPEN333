@@ -31,6 +31,7 @@ public:
 	void ListData();
 	T GetVal(int n);
 	void DelVal();
+	~LinkedList();
 };
 
 // Default constructor to set 
@@ -113,6 +114,10 @@ void LinkedList<T>::DelVal() {
 	tail = previous;
 	if (previous != nullptr)
 		previous->next = nullptr;
+}
+
+template <class T>
+LinkedList<T>::~LinkedList() {
 }
 
 #endif
