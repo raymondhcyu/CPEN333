@@ -13,25 +13,26 @@
 using namespace std;
 
 // Templates: Declaration and member functions needs to be within this same file
+template <class T>
+struct Node {
+	T data; // data storage of any form
+	Node* next; // pointer to the next struct of same element
+};
 
 template <class T>
-
 class LinkedList {
+private:
+	Node<T>* head;
+	Node<T>* tail;
 public:
 	// Default constructor to set 
 	LinkedList() {
 		head = nullptr;
 		tail = nullptr;
 	}
-
-	struct Node {
-		T data; // int data storage
-		Node* next; // pointer to the next struct of same element
-	};
-
-	// Add new node
+	// Add new node with data n
 	void Insert (T n) {
-		Node* temp = new Node; // create pointer to new node
+		Node<T>* temp = new Node<T>; // create pointer to new node
 		temp->data = n; // assign new data
 		temp->next = nullptr; // nothing after it (may need changing)
 
@@ -49,7 +50,7 @@ public:
 	// Retrieve length of LL
 	int GetLen() {
 		int length = -1;
-		Node* temp = head; 
+		Node<T>* temp = head;
 		if (temp == nullptr)
 			return length; // nothing in LL
 		else {
@@ -65,30 +66,26 @@ public:
 
 	// List all data in LL
 	void ListData() {
-		Node* temp = head;
+		Node<T>* temp = head;
 		while (temp != nullptr) {
-			cout << temp->data << endl; // can't use head->data b/c head doesn't change
+			cout << temp->data << endl;
 			temp = temp->next;
 		}
 	}
 
 	// Retrieve LL data from specific location (no check for exceeding LL size)
-	int GetVal(int n) {
-		Node* temp = head;
-		if (n == 1) // initial condition
-			return head->data;
-		else {
-			for (int i = 0; i < n; i++) {
-				temp = temp->next;
-			}
+	T GetVal(int n) {
+		Node<T>* temp = head;
+		for (int i = 0; i < n; i++) {
+			temp = temp->next;
 		}
 		return temp->data;
 	}
 
 	// Delete last element of LL
 	void DelVal() {
-		Node* current = head;
-		Node* previous = nullptr;
+		Node<T>* current = head;
+		Node<T>* previous = nullptr;
 		if (head == nullptr) { // empty LL
 			return;
 		}
@@ -103,10 +100,5 @@ public:
 		if (previous != nullptr)
 			previous->next = nullptr;
 	}
-
-// Private variables at end else Node not defined
-private:
-	Node* head;
-	Node* tail;
 };
 #endif

@@ -57,18 +57,16 @@ int main() {
 	printf("\n");
 	CPullLamp L1(100, 100, 100); // initialize three new bulbs to 100W
 
-	//L1.lampOn(); // changed to private void
 	L1.toggle();
 	printf("Power of Lamp = %d\n", L1.getPower());	// print power
 	CBulb* bulb1 = new CBulb(50);	// create new 50 watt bulb
 	bulb1 = L1.exchangeBulb(bulb1, 0);	// swap bulb 0 for 50 watt bulb
 	printf("Power of Lamp = %d\n", L1.getPower());	// print power
 
-	//L1.lampOff(); // changed to private void
 	L1.toggle();
 	printf("Power of Lamp = %d\n", L1.getPower());	// print power
 
-	// Linked lists
+	// Linked list with ints
 	cout << "\n\n\n";
 	LinkedList<int> theList; // LinkedList is a template now taking int data
 	theList.Insert(5);
@@ -80,7 +78,24 @@ int main() {
 	theList.DelVal(); 
 	cout << "The length of LL is: " << theList.GetLen() << endl;
 	theList.ListData();
-	cout << "\n\n\n";
 
+	// Linked list with bulbs
+	cout << "\n\n\n";
+	CBulb b1(100); // create 100W bulb
+	CBulb b2(120); // create 120W bulb
+	LinkedList<CBulb*> L2; // LL which holds CBulb pointers
+	L2.Insert(&b1); // insert node pointing to b1
+	L2.Insert(&b2); // insert node pointing to b2
+	L2.ListData(); // list data in L2 (shows memory addresses)
+	printf("The power of the 1st value of L2 is %i\n", L2.GetVal(0)->getPower());
+	printf("The power of the 2nd value of L2 is %i\n", L2.GetVal(1)->getPower());
+	b1.setState(1); // turn states on to get power
+	b2.setState(1);
+	cout << "The power of the 1st value of L2 is: " << L2.GetVal(0)->getPower() << endl; // only gets memory address without *; doesn't work with *
+	cout << "The power of the 2nd value of L2 is: " << L2.GetVal(1)->getPower() << endl;
+	cout << "The length of L2 is: " << L2.GetLen() << endl;
+
+	//L2.Insert(5);		// Error cannot add an int to a list that only accepts CBulb pointers
+	//L2.Insert(&s1);		// Error cannot add a switch pointer to this list 
 	return 0;
 }
