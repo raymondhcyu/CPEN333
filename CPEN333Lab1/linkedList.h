@@ -13,6 +13,7 @@
 using namespace std;
 
 // Templates: Declaration and member functions needs to be within this same file
+// Helpful link: https://www.geeksforgeeks.org/templates-cpp/ 
 template <class T>
 struct Node {
 	T data; // data storage of any form
